@@ -1,0 +1,68 @@
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000px;
+    height: 60%;
+}
+
+.flipY {
+    transform: rotateY(180deg);
+}
+
+.flipX {
+    transform: rotateX(180deg);
+}
+
+/* .flip-container, .front, .back {
+	width: 320px;
+	height: 480px;
+} */
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+    height: 100%;
+    width: 100%;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+    transform: rotateY(0deg);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+/* back, initially hidden pane */
+.back {
+	height: 100%;
+    width: 100%;
+}
+
+.back div {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+.flippedY {
+    transform: scaleY(1);
+}
+
+.flippedX {
+    transform: scaleX(1);
+}
